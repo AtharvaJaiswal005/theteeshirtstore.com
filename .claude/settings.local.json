@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nUpdate title and scholarship text in chatbot\n\n- Changed title from ''Youth Entrepreneurship'' to ''Education with the Profit''\n- Changed ''Scholarship enrollment'' to ''Scholarship application''\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git push)",
+      "Bash(git commit:*)"
+    ]
+  }
+}
