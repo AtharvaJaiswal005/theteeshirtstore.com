@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Education with A Profit - The Tee Shirt Store</title>
     <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
 <style>
@@ -21,8 +21,9 @@
         height: 100%;
         width: 100%;
         overflow: hidden;
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-        background: #212121;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        background: #ffffff;
+        -webkit-font-smoothing: antialiased;
     }
 
     :root {
@@ -32,13 +33,19 @@
         --chat--window--height: 100%;
     }
 
+    /* Hide n8n default elements */
+    .chat-window-toggle,
+    .chat-layout button[aria-label],
+    .chat-actions,
+    .chat-message-actions,
+    .chat-header {
+        display: none !important;
+    }
+
     /* Main Layout */
     .chat-layout {
         position: fixed !important;
-        top: 0 !important;
-        left: 0 !important;
-        right: 0 !important;
-        bottom: 0 !important;
+        inset: 0 !important;
         width: 100% !important;
         height: 100% !important;
         max-width: 100% !important;
@@ -46,39 +53,9 @@
         border-radius: 0 !important;
         display: flex !important;
         flex-direction: column !important;
-        background: #212121 !important;
-    }
-
-    /* Header */
-    .chat-layout .chat-header {
-        background: #212121 !important;
-        padding: 16px 32px !important;
-        border-bottom: 1px solid #333 !important;
-        flex-shrink: 0 !important;
-        display: flex !important;
-        align-items: center !important;
-        gap: 12px !important;
-    }
-
-    .chat-layout .chat-header h1 {
-        margin: 0 !important;
-        line-height: 1.3 !important;
-        font-family: 'Inter', sans-serif !important;
-        font-weight: 600 !important;
-        font-size: 1.1rem !important;
-        color: #ffffff !important;
-    }
-
-    .chat-layout .chat-header p {
-        margin: 0 !important;
-        font-size: 0.8rem !important;
-        color: #888 !important;
-        font-weight: 400 !important;
-    }
-
-    /* Hide toggle button */
-    .chat-window-toggle {
-        display: none !important;
+        background: #ffffff !important;
+        border: none !important;
+        box-shadow: none !important;
     }
 
     /* Chat Body */
@@ -86,113 +63,107 @@
         flex: 1 !important;
         display: flex !important;
         flex-direction: column !important;
-        background: #212121 !important;
+        background: #ffffff !important;
         overflow: hidden !important;
+        min-height: 0 !important;
     }
 
     /* Messages Container */
     .chat-messages-list {
         flex: 1 !important;
-        padding: 24px 16px !important;
+        padding: 20px !important;
+        overflow-y: auto !important;
         display: flex !important;
         flex-direction: column !important;
-        align-items: center !important;
-        overflow-y: auto !important;
-        gap: 32px !important;
+        gap: 16px !important;
+        background: #ffffff !important;
     }
 
-    /* Message Wrapper */
+    /* All Messages */
     .chat-message {
-        width: 100% !important;
-        max-width: 720px !important;
-        margin: 0 auto !important;
+        max-width: 85% !important;
         padding: 0 !important;
-        box-shadow: none !important;
-        border-radius: 0 !important;
         background: transparent !important;
         border: none !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        margin: 0 !important;
     }
 
     /* Bot Message */
     .chat-message-bot {
-        background: transparent !important;
-        border: none !important;
+        align-self: flex-start !important;
     }
 
     .chat-message-bot .chat-message-content {
-        background: transparent !important;
-        color: #ececec !important;
-        padding: 0 !important;
-        border-radius: 0 !important;
+        background: #f0f0f0 !important;
+        color: #1a1a1a !important;
+        padding: 14px 18px !important;
+        border-radius: 18px !important;
+        border-top-left-radius: 4px !important;
+        font-size: 15px !important;
+        line-height: 1.5 !important;
         border: none !important;
-        font-size: 16px !important;
-        line-height: 1.75 !important;
         box-shadow: none !important;
     }
 
     /* User Message */
     .chat-message-user {
-        background: transparent !important;
+        align-self: flex-end !important;
     }
 
     .chat-message-user .chat-message-content {
-        background: #2f2f2f !important;
+        background: #d6006e !important;
         color: #ffffff !important;
-        padding: 12px 18px !important;
-        border-radius: 20px !important;
-        font-size: 16px !important;
+        padding: 14px 18px !important;
+        border-radius: 18px !important;
+        border-top-right-radius: 4px !important;
+        font-size: 15px !important;
         line-height: 1.5 !important;
-        margin-left: auto !important;
-        max-width: fit-content !important;
-        width: fit-content !important;
+        border: none !important;
         box-shadow: none !important;
     }
 
     /* Input Area */
     .chat-input {
-        padding: 16px 16px 24px !important;
-        background: #212121 !important;
-        border-top: none !important;
+        padding: 12px 16px 24px !important;
+        background: #ffffff !important;
+        border-top: 1px solid #e5e5e5 !important;
         flex-shrink: 0 !important;
-        display: flex !important;
-        justify-content: center !important;
     }
 
     .chat-input form {
-        width: 100% !important;
-        max-width: 720px !important;
         display: flex !important;
-        gap: 0 !important;
-        align-items: flex-end !important;
-        background: #2f2f2f !important;
-        border-radius: 26px !important;
-        padding: 4px 4px 4px 20px !important;
+        align-items: center !important;
+        gap: 10px !important;
+        background: #f5f5f5 !important;
+        border-radius: 24px !important;
+        padding: 6px 6px 6px 18px !important;
+        border: 1px solid #e0e0e0 !important;
+        transition: border-color 0.2s !important;
+    }
+
+    .chat-input form:focus-within {
+        border-color: #d6006e !important;
     }
 
     .chat-input textarea {
         flex: 1 !important;
-        font-size: 16px !important;
-        font-family: 'Inter', sans-serif !important;
-        border-radius: 0 !important;
-        padding: 12px 0 !important;
+        font-size: 15px !important;
+        font-family: inherit !important;
+        padding: 8px 0 !important;
         border: none !important;
         background: transparent !important;
         resize: none !important;
-        min-height: 24px !important;
-        max-height: 200px !important;
-        color: #ffffff !important;
+        min-height: 20px !important;
+        max-height: 120px !important;
+        color: #1a1a1a !important;
         outline: none !important;
-        box-shadow: none !important;
+        line-height: 1.4 !important;
     }
 
     .chat-input textarea::placeholder {
         color: #888 !important;
-    }
-
-    .chat-input textarea:focus {
-        border: none !important;
-        outline: none !important;
-        box-shadow: none !important;
     }
 
     /* Send Button */
@@ -200,36 +171,36 @@
         background: #d6006e !important;
         border: none !important;
         border-radius: 50% !important;
-        width: 40px !important;
-        height: 40px !important;
-        min-width: 40px !important;
+        width: 36px !important;
+        height: 36px !important;
+        min-width: 36px !important;
+        min-height: 36px !important;
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
         cursor: pointer !important;
-        transition: background 0.2s !important;
+        transition: background 0.2s, transform 0.1s !important;
+        flex-shrink: 0 !important;
     }
 
     .chat-input button[type="submit"]:hover {
         background: #b3005c !important;
     }
 
-    .chat-input button[type="submit"] svg {
-        width: 18px !important;
-        height: 18px !important;
-        color: #ffffff !important;
+    .chat-input button[type="submit"]:active {
+        transform: scale(0.95) !important;
     }
 
-    /* Hide extra buttons */
-    .chat-layout button[aria-label],
-    .chat-actions,
-    .chat-message-actions {
-        display: none !important;
+    .chat-input button[type="submit"] svg {
+        width: 16px !important;
+        height: 16px !important;
+        color: #ffffff !important;
+        fill: #ffffff !important;
     }
 
     /* Scrollbar */
     .chat-messages-list::-webkit-scrollbar {
-        width: 8px;
+        width: 6px;
     }
 
     .chat-messages-list::-webkit-scrollbar-track {
@@ -237,52 +208,65 @@
     }
 
     .chat-messages-list::-webkit-scrollbar-thumb {
-        background: #444;
-        border-radius: 4px;
+        background: #d0d0d0;
+        border-radius: 3px;
     }
 
-    .chat-messages-list::-webkit-scrollbar-thumb:hover {
-        background: #555;
+    /* Loading */
+    .chat-message-loading .chat-message-content {
+        background: #f0f0f0 !important;
+        padding: 14px 18px !important;
+        border-radius: 18px !important;
+        border-top-left-radius: 4px !important;
     }
 
-    /* Responsive */
-    @media (max-width: 640px) {
+    /* Mobile */
+    @media (max-width: 600px) {
         .chat-messages-list {
-            padding: 16px 12px !important;
+            padding: 16px !important;
+            gap: 12px !important;
+        }
+
+        .chat-message {
+            max-width: 90% !important;
+        }
+
+        .chat-message-bot .chat-message-content,
+        .chat-message-user .chat-message-content {
+            padding: 12px 16px !important;
+            font-size: 14px !important;
         }
 
         .chat-input {
-            padding: 12px !important;
+            padding: 10px 12px 20px !important;
         }
 
-        .chat-message-bot .chat-message-content {
-            font-size: 15px !important;
+        .chat-input form {
+            padding: 4px 4px 4px 14px !important;
         }
 
-        .chat-message-user .chat-message-content {
-            font-size: 15px !important;
-            padding: 10px 16px !important;
+        .chat-input textarea {
+            font-size: 14px !important;
         }
 
-        .chat-layout .chat-header {
-            padding: 12px 16px !important;
+        .chat-input button[type="submit"] {
+            width: 32px !important;
+            height: 32px !important;
+            min-width: 32px !important;
+            min-height: 32px !important;
         }
 
-        .chat-layout .chat-header h1 {
-            font-size: 1rem !important;
+        .chat-input button[type="submit"] svg {
+            width: 14px !important;
+            height: 14px !important;
         }
     }
 
-    /* Loading indicator */
-    .chat-message-loading {
-        background: transparent !important;
-    }
-
-    .chat-message-loading .chat-message-content {
-        background: transparent !important;
-        border: none !important;
-        padding: 0 !important;
-        color: #888 !important;
+    /* Safe area for iPhone notch */
+    @supports (padding-bottom: env(safe-area-inset-bottom)) {
+        .chat-input {
+            padding-bottom: calc(24px + env(safe-area-inset-bottom)) !important;
+        }
     }
 </style>
 <script type="module">
@@ -291,13 +275,13 @@
     createChat({
         webhookUrl: 'https://n8n.srv1011638.hstgr.cloud/webhook/ade432a5-daca-4d84-bc67-0d9d045d3f43/chat',
         initialMessages: [
-            "Hey, I'm TeeBuddy 👋\n\nI'll help you get started with The Tee Shirt Store program 👕\n\nI can help you with:\n\n• Student enrollment\n\n• Scholarship application\n\n• Learning more about the program\n\nWhat would you like to know?"
+            "Hey, I'm TeeBuddy 👋\n\nI'll help you get started with The Tee Shirt Store program 👕\n\nI can help you with:\n\n• Student enrollment\n• Scholarship application\n• Learning more about the program\n\nWhat would you like to know?"
         ],
         i18n: {
             en: {
                 title: 'Education with A Profit',
                 subtitle: 'theteeshirtstore.com',
-                inputPlaceholder: 'Type your message...',
+                inputPlaceholder: 'Message...',
             }
         },
         mode: 'fullscreen'
