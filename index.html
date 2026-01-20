@@ -254,12 +254,14 @@
 
         .message-content ul,
         .message-content ol {
-            margin: 8px 0;
-            padding-left: 24px;
+            margin: 4px 0;
+            padding-left: 20px;
         }
 
         .message-content li {
-            margin: 4px 0;
+            margin: 0;
+            padding: 0;
+            line-height: 1.4;
         }
 
         .message-content strong {
@@ -400,13 +402,14 @@
         // Unordered lists
         html = html.replace(/^[\-\*] (.+)$/gm, '<li>$1</li>');
         html = html.replace(/(<li>.*<\/li>\n?)+/g, function(match) {
-            return '<ul>' + match + '</ul>';
+            return '<ul>' + match.replace(/\n/g, '') + '</ul>';
         });
 
         // Ordered lists
         html = html.replace(/^\d+\. (.+)$/gm, '<oli>$1</oli>');
         html = html.replace(/(<oli>.*<\/oli>\n?)+/g, function(match) {
-            return '<ol>' + match.replace(/<\/?oli>/g, function(tag) {
+            var cleaned = match.replace(/\n/g, '');
+            return '<ol>' + cleaned.replace(/<\/?oli>/g, function(tag) {
                 return tag === '<oli>' ? '<li>' : '</li>';
             }) + '</ol>';
         });
@@ -414,8 +417,16 @@
         // Paragraphs - convert double newlines to paragraph breaks
         html = html.replace(/\n\n+/g, '</p><p>');
 
-        // Single newlines to <br>
+        // Single newlines to <br> (but not inside lists)
         html = html.replace(/\n/g, '<br>');
+
+        // Clean up br tags around lists
+        html = html.replace(/<br><ul>/g, '<ul>');
+        html = html.replace(/<\/ul><br>/g, '</ul>');
+        html = html.replace(/<br><ol>/g, '<ol>');
+        html = html.replace(/<\/ol><br>/g, '</ol>');
+        html = html.replace(/<br><li>/g, '<li>');
+        html = html.replace(/<\/li><br>/g, '</li>');
 
         // Wrap in paragraph if not already wrapped
         if (!html.startsWith('<h') && !html.startsWith('<ul') && !html.startsWith('<ol') && !html.startsWith('<pre') && !html.startsWith('<blockquote')) {
