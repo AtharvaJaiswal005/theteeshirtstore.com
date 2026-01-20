@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Education with the Profit - The Tee Shirt Store</title>
+    <title>Education with A Profit - The Tee Shirt Store</title>
     <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,19 +22,12 @@
         width: 100%;
         overflow: hidden;
         font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        background: #212121;
     }
 
     :root {
         --chat--color--primary: #d6006e;
         --chat--color--secondary: #009add;
-        --chat--header--background: #d6006e;
-        --chat--header--color: #ffffff;
-        --chat--message--user--background: #009add;
-        --chat--message--user--color: #ffffff;
-        --chat--message--bot--background: #ffffff;
-        --chat--message--bot--color: #1a1a1a;
-        --chat--toggle--background: #d6006e;
-        --chat--toggle--hover--background: #b3005c;
         --chat--window--width: 100%;
         --chat--window--height: 100%;
     }
@@ -53,35 +46,33 @@
         border-radius: 0 !important;
         display: flex !important;
         flex-direction: column !important;
-        background: #f7f7f8 !important;
+        background: #212121 !important;
     }
 
     /* Header */
     .chat-layout .chat-header {
-        background: linear-gradient(135deg, #d6006e 0%, #b3005c 100%) !important;
-        padding: 20px 32px !important;
-        border-bottom: none !important;
+        background: #212121 !important;
+        padding: 16px 32px !important;
+        border-bottom: 1px solid #333 !important;
         flex-shrink: 0 !important;
         display: flex !important;
         align-items: center !important;
-        gap: 16px !important;
+        gap: 12px !important;
     }
 
     .chat-layout .chat-header h1 {
         margin: 0 !important;
         line-height: 1.3 !important;
         font-family: 'Inter', sans-serif !important;
-        font-weight: 700 !important;
-        letter-spacing: -0.5px;
-        font-size: 1.5rem !important;
+        font-weight: 600 !important;
+        font-size: 1.1rem !important;
         color: #ffffff !important;
     }
 
     .chat-layout .chat-header p {
-        margin: 4px 0 0 0 !important;
-        opacity: 0.9;
-        font-size: 0.875rem !important;
-        color: #ffffff !important;
+        margin: 0 !important;
+        font-size: 0.8rem !important;
+        color: #888 !important;
         font-weight: 400 !important;
     }
 
@@ -95,25 +86,25 @@
         flex: 1 !important;
         display: flex !important;
         flex-direction: column !important;
-        background: #f7f7f8 !important;
+        background: #212121 !important;
         overflow: hidden !important;
     }
 
     /* Messages Container */
     .chat-messages-list {
         flex: 1 !important;
-        padding: 32px !important;
+        padding: 24px 16px !important;
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
         overflow-y: auto !important;
-        gap: 24px !important;
+        gap: 32px !important;
     }
 
     /* Message Wrapper */
     .chat-message {
         width: 100% !important;
-        max-width: 768px !important;
+        max-width: 720px !important;
         margin: 0 auto !important;
         padding: 0 !important;
         box-shadow: none !important;
@@ -129,14 +120,14 @@
     }
 
     .chat-message-bot .chat-message-content {
-        background: #ffffff !important;
-        color: #1a1a1a !important;
-        padding: 20px 24px !important;
-        border-radius: 16px !important;
-        border: 1px solid #e5e5e5 !important;
-        font-size: 15px !important;
-        line-height: 1.7 !important;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+        background: transparent !important;
+        color: #ececec !important;
+        padding: 0 !important;
+        border-radius: 0 !important;
+        border: none !important;
+        font-size: 16px !important;
+        line-height: 1.75 !important;
+        box-shadow: none !important;
     }
 
     /* User Message */
@@ -145,22 +136,22 @@
     }
 
     .chat-message-user .chat-message-content {
-        background: #009add !important;
+        background: #2f2f2f !important;
         color: #ffffff !important;
-        padding: 16px 20px !important;
-        border-radius: 16px !important;
-        font-size: 15px !important;
-        line-height: 1.6 !important;
+        padding: 12px 18px !important;
+        border-radius: 20px !important;
+        font-size: 16px !important;
+        line-height: 1.5 !important;
         margin-left: auto !important;
-        max-width: 80% !important;
+        max-width: fit-content !important;
         width: fit-content !important;
-        box-shadow: 0 2px 8px rgba(0, 154, 221, 0.25) !important;
+        box-shadow: none !important;
     }
 
     /* Input Area */
     .chat-input {
-        padding: 24px 32px 32px !important;
-        background: #f7f7f8 !important;
+        padding: 16px 16px 24px !important;
+        background: #212121 !important;
         border-top: none !important;
         flex-shrink: 0 !important;
         display: flex !important;
@@ -169,61 +160,63 @@
 
     .chat-input form {
         width: 100% !important;
-        max-width: 768px !important;
+        max-width: 720px !important;
         display: flex !important;
-        gap: 12px !important;
+        gap: 0 !important;
         align-items: flex-end !important;
+        background: #2f2f2f !important;
+        border-radius: 26px !important;
+        padding: 4px 4px 4px 20px !important;
     }
 
     .chat-input textarea {
         flex: 1 !important;
-        font-size: 15px !important;
+        font-size: 16px !important;
         font-family: 'Inter', sans-serif !important;
-        border-radius: 24px !important;
-        padding: 16px 24px !important;
-        border: 1px solid #e0e0e0 !important;
-        background: #ffffff !important;
+        border-radius: 0 !important;
+        padding: 12px 0 !important;
+        border: none !important;
+        background: transparent !important;
         resize: none !important;
-        min-height: 52px !important;
+        min-height: 24px !important;
         max-height: 200px !important;
-        transition: border-color 0.2s, box-shadow 0.2s !important;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+        color: #ffffff !important;
+        outline: none !important;
+        box-shadow: none !important;
     }
 
     .chat-input textarea::placeholder {
-        color: #9ca3af !important;
+        color: #888 !important;
     }
 
     .chat-input textarea:focus {
-        border-color: #d6006e !important;
+        border: none !important;
         outline: none !important;
-        box-shadow: 0 0 0 3px rgba(214, 0, 110, 0.1), 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+        box-shadow: none !important;
     }
 
     /* Send Button */
     .chat-input button[type="submit"] {
-        background: linear-gradient(135deg, #d6006e 0%, #b3005c 100%) !important;
+        background: #d6006e !important;
         border: none !important;
         border-radius: 50% !important;
-        width: 52px !important;
-        height: 52px !important;
-        min-width: 52px !important;
+        width: 40px !important;
+        height: 40px !important;
+        min-width: 40px !important;
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
         cursor: pointer !important;
-        transition: transform 0.2s, box-shadow 0.2s !important;
-        box-shadow: 0 4px 12px rgba(214, 0, 110, 0.3) !important;
+        transition: background 0.2s !important;
     }
 
     .chat-input button[type="submit"]:hover {
-        transform: scale(1.05) !important;
-        box-shadow: 0 6px 16px rgba(214, 0, 110, 0.4) !important;
+        background: #b3005c !important;
     }
 
     .chat-input button[type="submit"] svg {
-        width: 20px !important;
-        height: 20px !important;
+        width: 18px !important;
+        height: 18px !important;
         color: #ffffff !important;
     }
 
@@ -244,36 +237,39 @@
     }
 
     .chat-messages-list::-webkit-scrollbar-thumb {
-        background: #d1d5db;
+        background: #444;
         border-radius: 4px;
     }
 
     .chat-messages-list::-webkit-scrollbar-thumb:hover {
-        background: #9ca3af;
+        background: #555;
     }
 
     /* Responsive */
     @media (max-width: 640px) {
         .chat-messages-list {
-            padding: 20px 16px !important;
+            padding: 16px 12px !important;
         }
 
         .chat-input {
-            padding: 16px !important;
+            padding: 12px !important;
         }
 
-        .chat-message-bot .chat-message-content,
+        .chat-message-bot .chat-message-content {
+            font-size: 15px !important;
+        }
+
         .chat-message-user .chat-message-content {
-            padding: 16px !important;
-            font-size: 14px !important;
+            font-size: 15px !important;
+            padding: 10px 16px !important;
         }
 
         .chat-layout .chat-header {
-            padding: 16px 20px !important;
+            padding: 12px 16px !important;
         }
 
         .chat-layout .chat-header h1 {
-            font-size: 1.25rem !important;
+            font-size: 1rem !important;
         }
     }
 
@@ -283,20 +279,10 @@
     }
 
     .chat-message-loading .chat-message-content {
-        background: #ffffff !important;
-        border: 1px solid #e5e5e5 !important;
-        border-radius: 16px !important;
-        padding: 20px 24px !important;
-    }
-
-    /* Typing animation */
-    @keyframes pulse {
-        0%, 100% { opacity: 0.4; }
-        50% { opacity: 1; }
-    }
-
-    .typing-indicator span {
-        animation: pulse 1.4s ease-in-out infinite;
+        background: transparent !important;
+        border: none !important;
+        padding: 0 !important;
+        color: #888 !important;
     }
 </style>
 <script type="module">
@@ -309,7 +295,7 @@
         ],
         i18n: {
             en: {
-                title: 'Education with the Profit',
+                title: 'Education with A Profit',
                 subtitle: 'theteeshirtstore.com',
                 inputPlaceholder: 'Type your message...',
             }
