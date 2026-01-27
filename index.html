@@ -392,6 +392,9 @@
         // Links [text](url)
         html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
 
+        // Auto-link plain URLs (http, https)
+        html = html.replace(/(^|[^"'>])(https?:\/\/[^\s<]+)/g, '$1<a href="$2" target="_blank" rel="noopener">$2</a>');
+
         // Blockquotes
         html = html.replace(/^&gt; (.+)$/gm, '<blockquote>$1</blockquote>');
 
